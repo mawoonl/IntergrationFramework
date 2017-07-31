@@ -34,7 +34,12 @@ public class Framework {
     }
 
     private static void visitUrl(String url) throws IOException {
-        URLConnection connection = new URL(url).openConnection();
-        connection.connect();
+        try {
+            URLConnection connection = new URL(url).openConnection();
+            connection.connect();
+        } catch (MalformedURLException ex) {
+            logger.error("protocol not recognised.", ex);
+        }
+
     }
 }
