@@ -1,5 +1,9 @@
 package nl.mawoo.jerome;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import nl.mawoo.jerome.engine.AppInjector;
+import nl.mawoo.jerome.engine.BootLoader;
 import nl.mawoo.jerome.engine.Plugin;
 import nl.mawoo.jerome.engine.PluginLoader;
 import nl.mawoo.jerome.protocol.MawStreamHandlerFactory;
@@ -28,32 +32,11 @@ public class Framework {
         logger.info("Add protocol to system..");
         URL.setURLStreamHandlerFactory(new MawStreamHandlerFactory());
 
-        logger.info("Scanning for plugins");
-        PluginLoader loader = new PluginLoader("");
-        Map<String, Plugin> pluginMap = loader.mapPlugins();
-        for(Object o : pluginMap.entrySet()) {
-            Map.Entry entry = (Map.Entry) o;
-            Plugin plugin = (Plugin) entry.getValue();
-            logger.info("plugin: "+ plugin.getName() +" - "+ plugin.getDescription());
-        }
-
-
-        Scanner in = new Scanner(System.in);
-        logger.info("Ready for input");
-        while(in.hasNext()) {
-            String input = in.next();
-            visitUrl(input);
-        }
-
-    }
-
-    private static void visitUrl(String url) throws IOException {
-        try {
-            URLConnection connection = new URL(url).openConnection();
-            connection.connect();
-        } catch (MalformedURLException ex) {
-            logger.error("protocol not recognised.", ex);
-        }
-
+        logger.info("initialize the injector");
+        Injector injector = Guice.createInjector(new AppInjector());
+        logger.info("Starting bootloader");
+        BootLoader bootLoader = injector.getInstance(BootLoader.class);
+        bootLoader.setPackageLocation("nl.mawoo.jerome.connectors");
+        bootLoader.run();
     }
 }
