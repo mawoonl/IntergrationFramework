@@ -4,17 +4,11 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import nl.mawoo.jerome.engine.AppInjector;
 import nl.mawoo.jerome.engine.BootLoader;
-import nl.mawoo.jerome.engine.Plugin;
-import nl.mawoo.jerome.engine.PluginLoader;
 import nl.mawoo.jerome.protocol.MawStreamHandlerFactory;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Jerome - Connector Framework
@@ -37,6 +31,7 @@ public class Framework {
         logger.info("Starting bootloader");
         BootLoader bootLoader = injector.getInstance(BootLoader.class);
         bootLoader.setPackageLocation("nl.mawoo.jerome.connectors");
+        bootLoader.pluginLoader();
         bootLoader.run();
     }
 }
