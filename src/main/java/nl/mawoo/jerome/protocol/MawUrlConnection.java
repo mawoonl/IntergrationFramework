@@ -28,6 +28,7 @@ public class MawUrlConnection extends URLConnection {
         Protocol protocol = new Protocol(url);
         CurrentQuery query = new CurrentQuery(protocol.getSelectedPlugins(), url.getPath(), url.getQuery());
         Engine engine = new Engine(query, pluginMap);
+        logger.info("file"+ url.getFile());
         engine.run();
     }
 

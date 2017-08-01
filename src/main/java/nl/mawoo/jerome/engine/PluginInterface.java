@@ -6,5 +6,5 @@ import nl.mawoo.jerome.model.MainDataModel;
  * This interface defines a plugin.
  */
 public interface PluginInterface {
-    MainDataModel query(String query, String[] params);
+    MainDataModel query(String path, String query);
 }

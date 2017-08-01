@@ -3,15 +3,18 @@ package nl.mawoo.jerome.connectors;
 import nl.mawoo.jerome.engine.Plugin;
 import nl.mawoo.jerome.model.DefaultModel;
 import nl.mawoo.jerome.model.MainDataModel;
+import org.apache.log4j.Logger;
 
 public class FileSystem extends Plugin {
+    private Logger logger = Logger.getLogger(FileSystem.class);
 
     public FileSystem() {
         super("filesystem", "C:/", "Native file system of current terminal");
     }
 
     @Override
-    public MainDataModel query(String query, String[] params) {
+    public MainDataModel query(String path, String query) {
+        logger.info("I got: " + path + " 000 " + query);
         return new DefaultModel();
     }
 }

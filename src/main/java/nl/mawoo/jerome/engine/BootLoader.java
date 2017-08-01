@@ -36,14 +36,7 @@ public class BootLoader {
     }
 
     public void scanPlugins() {
-        logger.info("Scanning for plugins");
-        Map<String, Plugin> pluginMap = loaderService.getPluginMap();
-        for(Object o : pluginMap.entrySet()) {
-            Map.Entry entry = (Map.Entry) o;
-            Plugin plugin = (Plugin) entry.getValue();
-            logger.info("plugin: "+ plugin.getName() +" - "+ plugin.getDescription());
-        }
-        this.setPluginMap(pluginMap);
+        this.setPluginMap(loaderService.getPluginMap());
     }
 
     public void run() {

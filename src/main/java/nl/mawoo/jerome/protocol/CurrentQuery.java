@@ -3,12 +3,12 @@ package nl.mawoo.jerome.protocol;
 public class CurrentQuery {
     private String[] plugins;
     private String path;
-    private String params;
+    private String query;
 
-    public CurrentQuery(String[] plugins, String path, String params) {
+    public CurrentQuery(String[] plugins, String path, String query) {
         this.plugins = plugins;
         this.path = path;
-        this.params = params;
+        this.query = query;
     }
 
     public String[] getPlugins() {
@@ -19,7 +19,7 @@ public class CurrentQuery {
         return path;
     }
 
-    public String getParams() {
-        return params;
+    public String getQuery() {
+        return query;
     }
 }
