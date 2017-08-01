@@ -23,15 +23,17 @@ public class Framework {
         logger.info("Mawoo Connector framework (c) 2017");
         logger.info("----------------------------------");
         logger.info("Booting up");
-        logger.info("Add protocol to system..");
-        URL.setURLStreamHandlerFactory(new MawStreamHandlerFactory());
-
         logger.info("initialize the injector");
         Injector injector = Guice.createInjector(new AppInjector());
+
+
         logger.info("Starting bootloader");
-        BootLoader bootLoader = injector.getInstance(BootLoader.class);
-        bootLoader.setPackageLocation("nl.mawoo.jerome.connectors");
+        BootLoader bootLoader = new BootLoader();
+        bootLoader.setPackageLocation("nl.mawoo.jerome");
         bootLoader.pluginLoader();
+        bootLoader.scanPlugins();
+        logger.info("Add protocol to system..");
+        URL.setURLStreamHandlerFactory(new MawStreamHandlerFactory(bootLoader.getPluginMap()));
         bootLoader.run();
     }
 }

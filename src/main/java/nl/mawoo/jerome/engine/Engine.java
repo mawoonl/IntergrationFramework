@@ -1,6 +1,5 @@
 package nl.mawoo.jerome.engine;
 
-import com.google.inject.Inject;
 import nl.mawoo.jerome.protocol.CurrentQuery;
 import org.apache.log4j.Logger;
 
@@ -10,15 +9,12 @@ public class Engine {
     private Logger logger = Logger.getLogger(Engine.class);
 
     private CurrentQuery currentQuery;
-    private PluginLoaderService loaderService;
+    private Map<String, Plugin> pluginMap;
 
-    @Inject
-    public void setLoaderService(PluginLoaderService loaderService) {
-        this.loaderService = loaderService;
-    }
 
-    public Engine(CurrentQuery currentQuery) {
+    public Engine(CurrentQuery currentQuery, Map<String, Plugin> pluginMap) {
         this.currentQuery = currentQuery;
+        this.pluginMap = pluginMap;
     }
 
     /**
@@ -26,7 +22,6 @@ public class Engine {
      * to function.
      */
     public void run() {
-        Map<String, Plugin> pluginMap = loaderService.getPluginMap();
         for (Object o : pluginMap.entrySet()) {
             Map.Entry entry = (Map.Entry) o;
             Plugin plugin = (Plugin) entry.getValue();

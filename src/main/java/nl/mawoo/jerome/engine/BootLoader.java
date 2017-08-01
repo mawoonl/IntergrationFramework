@@ -17,12 +17,13 @@ public class BootLoader {
     private String packageLocation;
     private PluginLoaderService loaderService;
     private Injector injector;
+    private Map<String, Plugin> pluginMap;
 
-    @Inject
-    public BootLoader(PluginLoaderService loaderService, Injector injector) {
-        this.loaderService = loaderService;
-        this.injector = injector;
-    }
+//    @Inject
+//    public BootLoader(PluginLoaderService loaderService, Injector injector) {
+//        this.loaderService = loaderService;
+//        this.injector = injector;
+//    }
 
     public void setPackageLocation(String packageLocation) {
         this.packageLocation = packageLocation;
@@ -34,7 +35,7 @@ public class BootLoader {
         loaderService.loadPlugins();
     }
 
-    public void run() {
+    public void scanPlugins() {
         logger.info("Scanning for plugins");
         Map<String, Plugin> pluginMap = loaderService.getPluginMap();
         for(Object o : pluginMap.entrySet()) {
@@ -42,8 +43,10 @@ public class BootLoader {
             Plugin plugin = (Plugin) entry.getValue();
             logger.info("plugin: "+ plugin.getName() +" - "+ plugin.getDescription());
         }
+        this.setPluginMap(pluginMap);
+    }
 
-
+    public void run() {
         Scanner in = new Scanner(System.in);
         logger.info("Ready for input");
         while(in.hasNext()) {
@@ -64,5 +67,13 @@ public class BootLoader {
             logger.error("protocol not recognised.", ex);
         }
 
+    }
+
+    public Map<String, Plugin> getPluginMap() {
+        return pluginMap;
+    }
+
+    private void setPluginMap(Map<String, Plugin> pluginMap) {
+        this.pluginMap = pluginMap;
     }
 }

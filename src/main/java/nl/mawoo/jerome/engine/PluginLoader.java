@@ -1,6 +1,5 @@
 package nl.mawoo.jerome.engine;
 
-import nl.mawoo.jerome.connectors.FileSystem;
 import org.apache.log4j.Logger;
 import org.reflections.Reflections;
 
@@ -27,6 +26,7 @@ public class PluginLoader {
             i++;
             try {
                 Plugin o = (Plugin) c.newInstance();
+                logger.info("plugin found: "+ o.getName());
                 map.put(o.getName(), o);
             } catch (InstantiationException | IllegalAccessException e) {
                 logger.error("Can't get instance of: "+ c.getName(), e);
