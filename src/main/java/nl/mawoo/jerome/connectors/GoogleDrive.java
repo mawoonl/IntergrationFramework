@@ -1,6 +1,7 @@
 package nl.mawoo.jerome.connectors;
 
 import nl.mawoo.jerome.engine.Plugin;
+import nl.mawoo.jerome.model.DefaultModel;
 import nl.mawoo.jerome.model.MainDataModel;
 
 public class GoogleDrive extends Plugin {
@@ -10,6 +11,6 @@ public class GoogleDrive extends Plugin {
 
     @Override
     public MainDataModel query(String query, String[] params) {
-        return null;
+        return new DefaultModel();
     }
 }

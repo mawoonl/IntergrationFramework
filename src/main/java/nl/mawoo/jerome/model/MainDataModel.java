@@ -1,5 +1,7 @@
 package nl.mawoo.jerome.model;
 
-public class MainDataModel {
+import java.io.Serializable;
+
+public interface MainDataModel extends Serializable {
 
 }

@@ -2,7 +2,6 @@ package nl.mawoo.jerome.protocol;
 
 import org.apache.log4j.Logger;
 
-import java.net.MalformedURLException;
 import java.net.URLStreamHandler;
 import java.net.URLStreamHandlerFactory;
 
@@ -14,6 +13,11 @@ public class MawStreamHandlerFactory implements URLStreamHandlerFactory {
 
     @Override
     public URLStreamHandler createURLStreamHandler(String s) {
-        return new MawStreamHandler();
+        if(s.equals("maid")) {
+            return new MawStreamHandler();
+        } else {
+            logger.error("protocol not handled");
+        }
+        return null;
     }
 }

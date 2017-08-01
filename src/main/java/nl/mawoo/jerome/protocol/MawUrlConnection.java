@@ -1,5 +1,6 @@
 package nl.mawoo.jerome.protocol;
 
+import nl.mawoo.jerome.engine.Engine;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -9,15 +10,18 @@ import java.net.URLConnection;
 public class MawUrlConnection extends URLConnection {
     private Logger logger = Logger.getLogger(MawUrlConnection.class);
 
-    protected MawUrlConnection(URL url) {
+    MawUrlConnection(URL url) {
         super(url);
     }
 
     @Override
     public void connect() throws IOException {
-        logger.info("Connected");
-        logger.info("Opening file: "+ url);
-        logger.info("Using connector: \"filesystem\"");
-        logger.info("Content: The quick brown fox jumps over the lazy dog.");
+        logger.info("Started request");
+        Protocol protocol = new Protocol(url);
+        CurrentQuery query = new CurrentQuery(protocol.getSelectedPlugins(), url.getPath(), url.getQuery());
+        Engine engine = new Engine(query);
+        engine.run();
     }
+
+
 }
