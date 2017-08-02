@@ -14,6 +14,6 @@ public class GoogleDrive extends Plugin {
     @Override
     public MainDataModel query(String path, String query) {
         logger.info("I got: "+ path +" 000 "+ query);
-        return new DefaultModel();
+        return new DefaultModel(this.getName(), "random google document");
     }
 }

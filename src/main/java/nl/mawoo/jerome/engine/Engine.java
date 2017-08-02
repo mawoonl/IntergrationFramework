@@ -1,5 +1,6 @@
 package nl.mawoo.jerome.engine;
 
+import com.google.gson.Gson;
 import nl.mawoo.jerome.model.MainDataModel;
 import nl.mawoo.jerome.protocol.CurrentQuery;
 import org.apache.log4j.Logger;
@@ -24,11 +25,14 @@ public class Engine {
      */
     public void run() {
         logger.info("engine started");
+        logger.info("no plugins requested.");
+        logger.info("request not handled");
         for (String plugin : currentQuery.getPlugins()) {
             Plugin plugin1 = pluginMap.get(plugin);
-            logger.info("selected plugin: " + plugin1.getName());
-            logger.info("selected path:" + currentQuery.getPath());
             MainDataModel model = plugin1.query(currentQuery.getPath(), currentQuery.getQuery());
+            String output = new Gson().toJson(model);
+            logger.info(output);
         }
+
     }
 }

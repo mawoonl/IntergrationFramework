@@ -6,6 +6,7 @@ import nl.mawoo.jerome.model.MainDataModel;
 import org.apache.log4j.Logger;
 
 public class FileSystem extends Plugin {
+
     private Logger logger = Logger.getLogger(FileSystem.class);
 
     public FileSystem() {
@@ -14,7 +15,6 @@ public class FileSystem extends Plugin {
 
     @Override
     public MainDataModel query(String path, String query) {
-        logger.info("I got: " + path + " 000 " + query);
-        return new DefaultModel();
+        return new DefaultModel(this.getName(), "random document");
     }
 }
