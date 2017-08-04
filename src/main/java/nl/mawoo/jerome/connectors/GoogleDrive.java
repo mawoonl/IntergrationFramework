@@ -5,6 +5,9 @@ import nl.mawoo.jerome.model.DefaultModel;
 import nl.mawoo.jerome.model.MainDataModel;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GoogleDrive extends Plugin {
     private Logger logger = Logger.getLogger(GoogleDrive.class);
     public GoogleDrive() {
@@ -12,8 +15,11 @@ public class GoogleDrive extends Plugin {
     }
 
     @Override
-    public MainDataModel query(String path, String query) {
+    public List<MainDataModel> query(String path, String query) {
         logger.info("I got: "+ path +" 000 "+ query);
-        return new DefaultModel(this.getName(), "random google document");
+        List<MainDataModel> mainDataModels = new ArrayList<>();
+        DefaultModel model = new DefaultModel(this.getName(), "random google document");
+        mainDataModels.add(model);
+        return mainDataModels;
     }
 }
