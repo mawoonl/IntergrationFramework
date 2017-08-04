@@ -23,7 +23,7 @@ public class Framework {
         logger.info("initialize the injector");
         logger.info("Starting bootloader");
         BootLoader bootLoader = new BootLoader();
-        bootLoader.setPackageLocation("nl.mawoo.jerome");
+        bootLoader.setPackageLocation("");
         bootLoader.pluginLoader();
         bootLoader.scanPlugins();
         logger.info("Add protocol to system..");

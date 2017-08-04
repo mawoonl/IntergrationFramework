@@ -25,14 +25,11 @@ public class Engine {
      */
     public void run() {
         logger.info("engine started");
-        logger.info("no plugins requested.");
-        logger.info("request not handled");
         for (String plugin : currentQuery.getPlugins()) {
             Plugin plugin1 = pluginMap.get(plugin);
             MainDataModel model = plugin1.query(currentQuery.getPath(), currentQuery.getQuery());
             String output = new Gson().toJson(model);
             logger.info(output);
         }
-
     }
 }
