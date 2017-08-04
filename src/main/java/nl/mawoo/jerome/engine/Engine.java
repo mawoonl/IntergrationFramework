@@ -13,7 +13,11 @@ public class Engine {
     private CurrentQuery currentQuery;
     private Map<String, Plugin> pluginMap;
 
-
+    /**
+     * This engine is responsible to run plugins and return the information given by the plugins
+     * @param currentQuery query that is requested for the plugins
+     * @param pluginMap every plugin available in the system
+     */
     public Engine(CurrentQuery currentQuery, Map<String, Plugin> pluginMap) {
         this.currentQuery = currentQuery;
         this.pluginMap = pluginMap;

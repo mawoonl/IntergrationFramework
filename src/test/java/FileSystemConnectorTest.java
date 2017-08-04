@@ -1,4 +1,4 @@
-import nl.mawoo.jerome.connectors.FileSystem;
+import nl.mawoo.jerome.connectors.filesystem.FileSystem;
 import org.junit.Assert;
 import org.junit.Test;
 
