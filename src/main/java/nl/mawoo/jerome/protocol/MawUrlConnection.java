@@ -13,7 +13,7 @@ public class MawUrlConnection extends URLConnection {
     private Logger logger = Logger.getLogger(MawUrlConnection.class);
     private Map<String, Plugin> pluginMap;
 
-    public MawUrlConnection(URL url, Map<String, Plugin> pluginMap) {
+    MawUrlConnection(URL url, Map<String, Plugin> pluginMap) {
         super(url);
         this.pluginMap = pluginMap;
     }

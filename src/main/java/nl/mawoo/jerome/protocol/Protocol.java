@@ -2,10 +2,10 @@ package nl.mawoo.jerome.protocol;
 
 import java.net.URL;
 
-public class Protocol {
+class Protocol {
     private URL url;
 
-    public Protocol(URL url) {
+    Protocol(URL url) {
         this.url = url;
     }
 

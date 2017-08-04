@@ -39,18 +39,19 @@ public class Engine {
             models.add(model);
         }
         String json = this.formatData(models);
-        logger.info("output: "+ json);
+        logger.info("output: " + json);
     }
 
     /**
      * Format data from all the plugins into one format.
+     *
      * @param allModels list returned by the plugins
      * @return String with JSON information
      */
     private String formatData(List<List<MainDataModel>> allModels) {
         List<MainDataModel> completeList = new ArrayList<>();
         for (List<MainDataModel> modelList : allModels) {
-            if (modelList.size() <= 1) {
+            if (modelList.size() <= 0) {
                 completeList.add(modelList.get(0));
             } else {
                 for (MainDataModel model : modelList) {

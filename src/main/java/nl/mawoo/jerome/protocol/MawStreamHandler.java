@@ -1,6 +1,5 @@
 package nl.mawoo.jerome.protocol;
 
-import com.google.inject.Injector;
 import nl.mawoo.jerome.engine.Plugin;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ public class MawStreamHandler extends URLStreamHandler {
 
     private final Map<String, Plugin> pluginMap;
 
-    public MawStreamHandler(Map<String, Plugin> pluginMap) {
+    MawStreamHandler(Map<String, Plugin> pluginMap) {
         this.pluginMap = pluginMap;
     }
 
