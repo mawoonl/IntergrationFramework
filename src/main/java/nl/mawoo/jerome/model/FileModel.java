@@ -1,40 +1,34 @@
 package nl.mawoo.jerome.model;
 
-import java.util.Date;
+import java.nio.file.attribute.FileTime;
 
 public class FileModel implements MainDataModel {
     private String fileName;
-    private String extension;
-    private String author;
-    private double size;
-    private Date lastModified;
+    private boolean isDirectory;
+    private FileTime lastModified;
+    private FileTime creationDate;
 
 
-    public FileModel(String fileName, String extension, String author, double size, Date lastModified) {
-        this.fileName = fileName;
-        this.extension = extension;
-        this.author = author;
-        this.size = size;
+    public FileModel(String name, boolean isDirectory, FileTime lastModified, FileTime creationDate) {
+        this.fileName = name;
+        this.isDirectory = isDirectory;
         this.lastModified = lastModified;
+        this.creationDate = creationDate;
     }
 
     public String getFileName() {
         return fileName;
     }
-
-    public String getExtension() {
-        return extension;
+    
+    public boolean isDirectory() {
+        return isDirectory;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public double getSize() {
-        return size;
-    }
-
-    public Date getLastModified() {
+    public FileTime getLastModified() {
         return lastModified;
+    }
+
+    public FileTime getCreationDate() {
+        return creationDate;
     }
 }

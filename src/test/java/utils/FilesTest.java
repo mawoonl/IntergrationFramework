@@ -15,4 +15,12 @@ public class FilesTest {
         Assert.assertEquals("/path/to/", exploded[0]);
         Assert.assertEquals("document.txt", exploded[1]);
     }
+
+    @Test
+    public void extractPathTest() {
+        String filepath = "/path/to/";
+        String[] exploded = Files.getPathFromFull(filepath);
+        logger.info(exploded[0]);
+        Assert.assertEquals("/path/to/", exploded[0]);
+    }
 }
