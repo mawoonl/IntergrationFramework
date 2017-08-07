@@ -1,6 +1,5 @@
 package nl.mawoo.jerome.engine;
 
-import com.google.gson.Gson;
 import nl.mawoo.jerome.model.MainDataModel;
 import nl.mawoo.jerome.protocol.CurrentQuery;
 import org.apache.log4j.Logger;
@@ -30,16 +29,19 @@ public class Engine {
      * This method runs the engine it self. Runs the selected plugins and passes on information that the plugins need
      * to function.
      */
-    public void run() {
+    public List<MainDataModel> run() {
         logger.info("engine started");
         List<List<MainDataModel>> models = new ArrayList<>();
         for (String plugin : currentQuery.getPlugins()) {
-            Plugin plugin1 = pluginMap.get(plugin);
-            List<MainDataModel> model = plugin1.query(currentQuery.getPath(), currentQuery.getQuery());
-            models.add(model);
+            try {
+                Plugin plugin1 = pluginMap.get(plugin);
+                List<MainDataModel> model = plugin1.query(currentQuery.getPath(), currentQuery.getQuery());
+                models.add(model);
+            } catch (Exception e) {
+                logger.error("something went wrong with the plugin. quitting", e);
+            }
         }
-        String json = this.formatData(models);
-        logger.info("output: " + json);
+        return this.formatData(models);
     }
 
     /**
@@ -48,7 +50,7 @@ public class Engine {
      * @param allModels list returned by the plugins
      * @return String with JSON information
      */
-    private String formatData(List<List<MainDataModel>> allModels) {
+    private List<MainDataModel> formatData(List<List<MainDataModel>> allModels) {
         List<MainDataModel> completeList = new ArrayList<>();
         for (List<MainDataModel> modelList : allModels) {
             if (modelList.size() <= 0) {
@@ -59,6 +61,6 @@ public class Engine {
                 }
             }
         }
-        return new Gson().toJson(completeList);
+        return completeList;
     }
 }
