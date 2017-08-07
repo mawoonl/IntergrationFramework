@@ -23,4 +23,11 @@ public class FilesTest {
         logger.info(exploded[0]);
         Assert.assertEquals("/path/to/", exploded[0]);
     }
+
+    @Test
+    public void noPathTest() {
+        String filepath = "/path";
+        String[] exploded = Files.getPathFromFull(filepath);
+        Assert.assertEquals("/path", exploded[0]);
+    }
 }

@@ -18,19 +18,12 @@ public class MawUrlConnection extends URLConnection {
         this.pluginMap = pluginMap;
     }
 
-    MawUrlConnection(URL url) {
-        super(url);
-    }
-
     @Override
     public void connect() throws IOException {
         logger.info("Started request");
         Protocol protocol = new Protocol(url);
         CurrentQuery query = new CurrentQuery(protocol.getSelectedPlugins(), url.getPath(), url.getQuery());
         Engine engine = new Engine(query, pluginMap);
-        logger.info("file"+ url.getFile());
         engine.run();
     }
-
-
 }

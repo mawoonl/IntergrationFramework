@@ -1,7 +1,5 @@
 package nl.mawoo.jerome.engine;
 
-import com.google.inject.Inject;
-import com.google.inject.Injector;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -16,14 +14,7 @@ public class BootLoader {
 
     private String packageLocation;
     private PluginLoaderService loaderService;
-    private Injector injector;
     private Map<String, Plugin> pluginMap;
-
-//    @Inject
-//    public BootLoader(PluginLoaderService loaderService, Injector injector) {
-//        this.loaderService = loaderService;
-//        this.injector = injector;
-//    }
 
     public void setPackageLocation(String packageLocation) {
         this.packageLocation = packageLocation;
@@ -42,7 +33,7 @@ public class BootLoader {
     public void run() {
         Scanner in = new Scanner(System.in);
         logger.info("Ready for input");
-        while(in.hasNext()) {
+        while (in.hasNext()) {
             String input = in.next();
             try {
                 visitUrl(input);
@@ -52,7 +43,12 @@ public class BootLoader {
         }
     }
 
-    private void visitUrl(String url) throws IOException {
+    /**
+     * Visit the custom Mawoo URL
+     * @param url visisting address
+     * @throws IOException
+     */
+    public void visitUrl(String url) throws IOException {
         try {
             URLConnection connection = new URL(url).openConnection();
             connection.connect();

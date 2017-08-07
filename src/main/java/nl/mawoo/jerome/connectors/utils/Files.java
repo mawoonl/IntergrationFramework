@@ -18,6 +18,10 @@ public class Files {
      */
     public static String[] getPathFromFull(String path) {
         int iDirectory = path.lastIndexOf("/");
-        return new String[]{path.substring(0, iDirectory+1), path.substring(iDirectory+1)};
+        if(iDirectory == 0) {
+            return new String[]{path};
+        } else {
+            return new String[]{path.substring(0, iDirectory+1), path.substring(iDirectory+1)};
+        }
     }
 }

@@ -2,10 +2,10 @@ package nl.mawoo.jerome.protocol;
 
 import java.net.URL;
 
-class Protocol {
+public class Protocol {
     private URL url;
 
-    Protocol(URL url) {
+    public Protocol(URL url) {
         this.url = url;
     }
 
@@ -13,7 +13,7 @@ class Protocol {
      * Get every plugin name that the
      * @return String array with plugins that are requested
      */
-    String[] getSelectedPlugins() {
+    public String[] getSelectedPlugins() {
         return url.getHost().split("\\+");
     }
 }

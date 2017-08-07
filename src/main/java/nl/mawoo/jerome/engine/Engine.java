@@ -38,7 +38,7 @@ public class Engine {
                 List<MainDataModel> model = plugin1.query(currentQuery.getPath(), currentQuery.getQuery());
                 models.add(model);
             } catch (Exception e) {
-                logger.error("something went wrong with the plugin. quitting", e);
+                logger.error("Something went wrong with the plugin. quitting", e);
             }
         }
         return this.formatData(models);
