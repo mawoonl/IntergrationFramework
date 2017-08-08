@@ -18,14 +18,16 @@ public class FileSystem extends Plugin {
 
     private Logger logger = Logger.getLogger(FileSystem.class);
     private String[] path;
-    private List<MainDataModel> defaultModels = new ArrayList<>();
+    private List<MainDataModel> defaultModels;
 
     public FileSystem() {
         super("filesystem", "C:/", "Native file system of current terminal");
+        defaultModels  = new ArrayList<>();
     }
 
     @Override
     public List<MainDataModel> query(String rawPath, String query) {
+        defaultModels.clear();
         this.path = nl.mawoo.jerome.connectors.utils.Files.getPathFromFull(rawPath);
         if (path[1].isEmpty()) {
             this.scanDirectory();

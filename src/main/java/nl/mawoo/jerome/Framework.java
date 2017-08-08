@@ -5,7 +5,6 @@ import nl.mawoo.jerome.engine.BootLoader;
 import nl.mawoo.jerome.engine.Engine;
 import nl.mawoo.jerome.model.MainDataModel;
 import nl.mawoo.jerome.protocol.CurrentQuery;
-import nl.mawoo.jerome.protocol.MawStreamHandlerFactory;
 import nl.mawoo.jerome.protocol.Protocol;
 import org.apache.log4j.Logger;
 
@@ -38,6 +37,7 @@ public class Framework {
         bootLoader.pluginLoader();
         bootLoader.scanPlugins();
         logger.info("Add protocol to system..");
+        connection();
     }
 
     private void connection() {
@@ -57,33 +57,11 @@ public class Framework {
 
     public List<MainDataModel> run(String url) {
         try {
-            connection();
             bootLoader.visitUrl(url);
             logger.info(new Gson().toJson(engine.run()));
         } catch (IOException e) {
             logger.error("cannot open url", e);
         }
         return null;
-    };
-
-
-
-    /**
-     * Run the framework as a service instead as a library
-     * @param args standard stuff
-     */
-    public static void main(String[] args) {
-        logger.info("Mawoo Jerome (c) 2017");
-        logger.info("----------------------------------");
-        logger.info("Booting up");
-        logger.info("initialize the injector");
-        logger.info("Starting bootloader");
-        BootLoader bootLoader = new BootLoader();
-        bootLoader.setPackageLocation("");
-        bootLoader.pluginLoader();
-        bootLoader.scanPlugins();
-        logger.info("Add protocol to system..");
-        URL.setURLStreamHandlerFactory(new MawStreamHandlerFactory(bootLoader.getPluginMap()));
-        bootLoader.run();
     }
 }
