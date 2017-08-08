@@ -38,7 +38,6 @@ public class Framework {
         bootLoader.pluginLoader();
         bootLoader.scanPlugins();
         logger.info("Add protocol to system..");
-        URL.setURLStreamHandlerFactory(new MawStreamHandlerFactory(bootLoader.getPluginMap()));
     }
 
     private void connection() {
