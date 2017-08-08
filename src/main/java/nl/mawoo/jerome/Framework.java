@@ -58,7 +58,9 @@ public class Framework {
     public List<MainDataModel> run(String url) {
         try {
             bootLoader.visitUrl(url);
-            logger.info(new Gson().toJson(engine.run()));
+            List<MainDataModel> model = engine.run();
+            logger.info(new Gson().toJson(model));
+            return model;
         } catch (IOException e) {
             logger.error("cannot open url", e);
         }
