@@ -1,11 +1,9 @@
 package nl.mawoo.jerome.engine;
 
-import com.google.inject.Singleton;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
 
-@Singleton
 public class PluginLoaderService implements PluginLoaderInterface {
     private Logger logger = Logger.getLogger(PluginLoaderService.class);
     private Map<String, Plugin> pluginMap;

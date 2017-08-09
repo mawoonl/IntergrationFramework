@@ -27,8 +27,12 @@ public class Framework {
     private Engine engine;
 
     public Framework(String packageLocation) {
-        logger.info("Mawoo Jerome (c) 2017");
-        logger.info("----------------------------------");
+        System.out.println("    __  ___                                  __                             \n" +
+                "   /  |/  /___ __      ______  ____         / /__  _________  ____ ___  ___ \n" +
+                "  / /|_/ / __ `/ | /| / / __ \\/ __ \\   __  / / _ \\/ ___/ __ \\/ __ `__ \\/ _ \\\n" +
+                " / /  / / /_/ /| |/ |/ / /_/ / /_/ /  / /_/ /  __/ /  / /_/ / / / / / /  __/\n" +
+                "/_/  /_/\\__,_/ |__/|__/\\____/\\____/   \\____/\\___/_/   \\____/_/ /_/ /_/\\___/ \n" +
+                "                                                                            ");
         logger.info("Booting up");
         logger.info("initialize the injector");
         logger.info("Starting bootloader");
@@ -36,11 +40,16 @@ public class Framework {
         bootLoader.setPackageLocation(packageLocation);
         bootLoader.pluginLoader();
         bootLoader.scanPlugins();
-        logger.info("Add protocol to system..");
-        connection();
     }
 
-    private void connection() {
+    /**
+     * This method will register a protocol that java.net.URL can reach when you open a new connection.
+     * The protocol is defined as "maid://"
+     *
+     * example format: maid://[plugin]+[plugin]/path/to/file?query=parameters
+     * example url: maid://filesystem/home/username/Documents/temp.txt
+     */
+    public void registerProtocol() {
         URL.setURLStreamHandlerFactory(protocol -> "maid".equals(protocol) ? new URLStreamHandler() {
             protected URLConnection openConnection(URL url) throws IOException {
                 return new URLConnection(url) {
