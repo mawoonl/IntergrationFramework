@@ -1,5 +1,6 @@
 package nl.mawoo.jerome.api;
 
+import com.google.gson.Gson;
 import nl.mawoo.jerome.Framework;
 import nl.mawoo.jerome.model.MainDataModel;
 import org.apache.log4j.Logger;
@@ -18,7 +19,8 @@ public class Api {
 
     public static void main(String[] args) {
         SpringApplication.run(Api.class);
-        Framework framework = new Framework(".");
+        Framework framework = new Framework("");
+        framework.registerProtocol();
         List<MainDataModel> mainDataModel = framework.run("maid://google-drive/msdk");
     }
 }

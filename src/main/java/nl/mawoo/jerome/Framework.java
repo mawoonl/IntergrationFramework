@@ -1,6 +1,5 @@
 package nl.mawoo.jerome;
 
-import com.google.gson.Gson;
 import nl.mawoo.jerome.engine.BootLoader;
 import nl.mawoo.jerome.engine.Engine;
 import nl.mawoo.jerome.model.MainDataModel;
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  * Jerome - Connector Framework
  * The last data source you'll ever need.
- *
+ * <p>
  * This framework is build to have many connections as one data source
  */
 public class Framework {
@@ -26,7 +25,14 @@ public class Framework {
     private BootLoader bootLoader;
     private Engine engine;
 
+    /**
+     * Boot up the application.
+     * Initializes bootloader and scans plugins on startup.
+     *
+     * @param packageLocation can be an empty String
+     */
     public Framework(String packageLocation) {
+        // awesome logger header
         System.out.println("    __  ___                                  __                             \n" +
                 "   /  |/  /___ __      ______  ____         / /__  _________  ____ ___  ___ \n" +
                 "  / /|_/ / __ `/ | /| / / __ \\/ __ \\   __  / / _ \\/ ___/ __ \\/ __ `__ \\/ _ \\\n" +
@@ -45,7 +51,7 @@ public class Framework {
     /**
      * This method will register a protocol that java.net.URL can reach when you open a new connection.
      * The protocol is defined as "maid://"
-     *
+     * <p>
      * example format: maid://[plugin]+[plugin]/path/to/file?query=parameters
      * example url: maid://filesystem/home/username/Documents/temp.txt
      */
@@ -68,7 +74,6 @@ public class Framework {
         try {
             bootLoader.visitUrl(url);
             List<MainDataModel> model = engine.run();
-            logger.info(new Gson().toJson(model));
             return model;
         } catch (IOException e) {
             logger.error("cannot open url", e);
