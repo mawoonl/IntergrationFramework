@@ -1,6 +1,5 @@
 package nl.mawoo.jerome.api;
 
-import com.google.gson.Gson;
 import nl.mawoo.jerome.Framework;
 import nl.mawoo.jerome.model.MainDataModel;
 import org.apache.log4j.Logger;
