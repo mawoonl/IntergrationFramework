@@ -47,7 +47,7 @@ public class FileSystem extends Plugin {
     private void scanFile(String rawPath) throws IOException {
         Path file = Paths.get(rawPath);
         BasicFileAttributes fileAttributes = Files.readAttributes(file, BasicFileAttributes.class);
-        FileModel model = new FileModel(file.getFileName().toString(), fileAttributes.isDirectory(), fileAttributes.lastModifiedTime(), fileAttributes.creationTime());
+        FileModel model = new FileModel(this.getName(), file.getFileName().toString(), fileAttributes.isDirectory(), fileAttributes.lastModifiedTime(), fileAttributes.creationTime());
         defaultModels.add(model);
     }
 
