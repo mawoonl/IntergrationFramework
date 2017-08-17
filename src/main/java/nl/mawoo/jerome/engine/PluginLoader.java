@@ -21,9 +21,7 @@ public class PluginLoader {
 
     public Map<String, Plugin> mapPlugins() {
         Map<String, Plugin> map = new HashMap<>();
-        int i = 0;
         for (Class<?> c : runReflections()) {
-            i++;
             try {
                 Plugin o = (Plugin) c.newInstance();
                 logger.info("plugin found: "+ o.getName());
