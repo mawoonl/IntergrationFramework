@@ -10,7 +10,7 @@ public class FileModel implements MainDataModel {
     private FileTime creationDate;
 
     public FileModel(String source, String fileName, boolean isDirectory, FileTime lastModified, FileTime creationDate) {
-        this.source = source;
+        this._source = source;
         this.fileName = fileName;
         this.isDirectory = isDirectory;
         this.lastModified = lastModified;
