@@ -49,9 +49,11 @@ public class Framework {
      * @return List of main data models. Every model that is implemented into the system.
      */
     public List<MainDataModel> run(String url) {
+        logger.info("Incoming request: "+ url);
         Protocol protocol = new Protocol(url);
         Engine engine = new Engine(protocol.getCurrentQuery(), bootLoader.getPluginMap());
         List<MainDataModel> model = engine.run();
+        logger.info("Request handled");
         return model;
     }
 }

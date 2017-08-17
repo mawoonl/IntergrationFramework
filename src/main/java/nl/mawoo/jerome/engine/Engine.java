@@ -30,7 +30,6 @@ public class Engine {
      * to function.
      */
     public List<MainDataModel> run() {
-        logger.info("engine started");
         List<List<MainDataModel>> models = new ArrayList<>();
         for (String plugin : currentQuery.getPlugins()) {
             try {
