@@ -18,7 +18,7 @@ public class FileModel implements MainDataModel {
     }
 
     public String getSource() {
-        return source;
+        return _source;
     }
 
     public String getFileName() {
