@@ -3,14 +3,9 @@ package nl.mawoo.jerome;
 import nl.mawoo.jerome.engine.BootLoader;
 import nl.mawoo.jerome.engine.Engine;
 import nl.mawoo.jerome.model.MainDataModel;
-import nl.mawoo.jerome.protocol.CurrentQuery;
 import nl.mawoo.jerome.protocol.Protocol;
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLStreamHandler;
 import java.util.List;
 
 /**
@@ -23,7 +18,7 @@ public class Framework {
 
     private static Logger logger = Logger.getLogger(Framework.class);
     private BootLoader bootLoader;
-    private Engine engine;
+
 
     /**
      * Boot up the application.
@@ -49,35 +44,14 @@ public class Framework {
     }
 
     /**
-     * This method will register a protocol that java.net.URL can reach when you open a new connection.
-     * The protocol is defined as "maid://"
-     * <p>
-     * example format: maid://[plugin]+[plugin]/path/to/file?query=parameters
-     * example url: maid://filesystem/home/username/Documents/temp.txt
+     * This method will get the information that you want
+     * @param url url that you want to visit to get a document
+     * @return List of main data models. Every model that is implemented into the system.
      */
-    public void registerProtocol() {
-        URL.setURLStreamHandlerFactory(protocol -> "maid".equals(protocol) ? new URLStreamHandler() {
-            protected URLConnection openConnection(URL url) throws IOException {
-                return new URLConnection(url) {
-                    public void connect() throws IOException {
-                        logger.info("Accepted request");
-                        Protocol protocol = new Protocol(url);
-                        CurrentQuery query = new CurrentQuery(protocol.getSelectedPlugins(), url.getPath(), url.getQuery());
-                        engine = new Engine(query, bootLoader.getPluginMap());
-                    }
-                };
-            }
-        } : null);
-    }
-
     public List<MainDataModel> run(String url) {
-        try {
-            bootLoader.visitUrl(url);
-            List<MainDataModel> model = engine.run();
-            return model;
-        } catch (IOException e) {
-            logger.error("cannot open url", e);
-        }
-        return null;
+        Protocol protocol = new Protocol(url);
+        Engine engine = new Engine(protocol.getCurrentQuery(), bootLoader.getPluginMap());
+        List<MainDataModel> model = engine.run();
+        return model;
     }
 }

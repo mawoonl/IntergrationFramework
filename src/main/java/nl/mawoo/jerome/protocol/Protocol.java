@@ -1,19 +1,34 @@
 package nl.mawoo.jerome.protocol;
 
-import java.net.URL;
+import org.apache.log4j.Logger;
 
+import java.net.URI;
+
+/**
+ * This is the second version of the protocol.
+ * This time we won't be using
+ */
 public class Protocol {
-    private URL url;
+    private URI incoming;
+    private Logger logger = Logger.getLogger(Protocol.class);
 
-    public Protocol(URL url) {
-        this.url = url;
+    public Protocol(String incoming) {
+        this.incoming = URI.create(incoming);
     }
 
-    /**
-     * Get every plugin name that the
-     * @return String array with plugins that are requested
-     */
-    public String[] getSelectedPlugins() {
-        return url.getHost().split("\\+");
+    private String[] getPlugins() {
+       return incoming.getAuthority().split("\\+");
+    }
+
+    private String getPath() {
+        return incoming.getPath();
+    }
+
+    private String getQuery() {
+        return incoming.getQuery();
+    }
+
+    public CurrentQuery getCurrentQuery() {
+        return new CurrentQuery(getPlugins(), getPath(), getQuery());
     }
 }

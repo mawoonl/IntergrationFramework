@@ -12,7 +12,6 @@ public class FrameworkCli {
 
     public static void main(String[] args) {
         Framework framework = new Framework("");
-        framework.registerProtocol();
         logger.info("Ready for input");
         Scanner in = new Scanner(System.in);
         while (in.hasNext()) {
