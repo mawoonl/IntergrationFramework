@@ -7,17 +7,16 @@ import nl.mawoo.jerome.model.MainDataModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Just an example on how to load external plugins.
+ */
 public class Dropbox extends Plugin{
 
     /**
      * This class defines a plugin and gives information about the plugin
-     *
-     * @param name        The name of the plugin. It cannot contain the "-" character.
-     * @param sourceUrl   Source URL that is used to find more information about the actual source
-     * @param description Simple description of the plugin it self about the source and what it does.
      */
-    public Dropbox(String name, String sourceUrl, String description) {
-        super(name, sourceUrl, description);
+    public Dropbox() {
+        super("dropbox", "http://dropbox.com", "Cloud storage");
     }
 
     @Override
