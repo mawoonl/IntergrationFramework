@@ -1,7 +1,7 @@
-package nl.mawoo.jerome.engine;
+package nl.mawoo.intergrationframework.engine;
 
-import nl.mawoo.jerome.model.MainDataModel;
-import nl.mawoo.jerome.protocol.CurrentQuery;
+import nl.mawoo.intergrationframework.model.MainDataModel;
+import nl.mawoo.intergrationframework.protocol.CurrentQuery;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

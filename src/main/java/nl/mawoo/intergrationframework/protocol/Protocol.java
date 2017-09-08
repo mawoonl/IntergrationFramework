@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.protocol;
+package nl.mawoo.intergrationframework.protocol;
 
 import org.apache.log4j.Logger;
 

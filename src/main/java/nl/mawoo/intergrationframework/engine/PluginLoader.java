@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.engine;
+package nl.mawoo.intergrationframework.engine;
 
 import org.apache.log4j.Logger;
 import org.reflections.Reflections;

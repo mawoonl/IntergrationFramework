@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.engine;
+package nl.mawoo.intergrationframework.engine;
 
 import java.util.Map;
 

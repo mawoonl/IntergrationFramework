@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.model;
+package nl.mawoo.intergrationframework.model;
 
 import java.nio.file.attribute.FileTime;
 

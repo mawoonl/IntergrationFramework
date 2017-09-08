@@ -1,6 +1,6 @@
 package utils;
 
-import nl.mawoo.jerome.connectors.utils.Files;
+import nl.mawoo.intergrationframework.connectors.utils.Files;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;

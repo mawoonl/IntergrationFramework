@@ -1,7 +1,7 @@
-package nl.mawoo.jerome;
+package nl.mawoo.intergrationframework;
 
 import com.google.gson.Gson;
-import nl.mawoo.jerome.model.MainDataModel;
+import nl.mawoo.intergrationframework.model.MainDataModel;
 import org.apache.log4j.Logger;
 
 import java.util.List;

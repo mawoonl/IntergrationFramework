@@ -1,11 +1,11 @@
-package nl.mawoo.jerome.connectors.utils;
+package nl.mawoo.intergrationframework.connectors.utils;
 
 import org.apache.log4j.Logger;
 
 /**
- * In this package are classes that can are often helpfull for developing plugins.
+ * In this package are classes that can are often helpful for developing plugins.
  *
- * This class helps extracting values from filepaths and other types that are usefull for getting information about
+ * This class helps extracting values from filepath and other types that are useful for getting information about
  * directories or files.
  */
 public class Files {

@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.protocol;
+package nl.mawoo.intergrationframework.protocol;
 
 public class CurrentQuery {
     private String[] plugins;

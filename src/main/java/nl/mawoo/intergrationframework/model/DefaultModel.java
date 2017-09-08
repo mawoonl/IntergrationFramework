@@ -1,4 +1,4 @@
-package nl.mawoo.jerome.model;
+package nl.mawoo.intergrationframework.model;
 
 public class DefaultModel implements MainDataModel {
     private String _source;

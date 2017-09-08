@@ -1,5 +1,5 @@
-import nl.mawoo.jerome.protocol.CurrentQuery;
-import nl.mawoo.jerome.protocol.Protocol;
+import nl.mawoo.intergrationframework.protocol.CurrentQuery;
+import nl.mawoo.intergrationframework.protocol.Protocol;
 import org.junit.Assert;
 import org.junit.Test;
 

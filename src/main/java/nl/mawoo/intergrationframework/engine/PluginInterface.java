@@ -1,6 +1,6 @@
-package nl.mawoo.jerome.engine;
+package nl.mawoo.intergrationframework.engine;
 
-import nl.mawoo.jerome.model.MainDataModel;
+import nl.mawoo.intergrationframework.model.MainDataModel;
 
 import java.util.List;
 

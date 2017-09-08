@@ -1,9 +1,9 @@
-package nl.mawoo.jerome;
+package nl.mawoo.intergrationframework;
 
-import nl.mawoo.jerome.engine.BootLoader;
-import nl.mawoo.jerome.engine.Engine;
-import nl.mawoo.jerome.model.MainDataModel;
-import nl.mawoo.jerome.protocol.Protocol;
+import nl.mawoo.intergrationframework.engine.BootLoader;
+import nl.mawoo.intergrationframework.engine.Engine;
+import nl.mawoo.intergrationframework.model.MainDataModel;
+import nl.mawoo.intergrationframework.protocol.Protocol;
 import org.apache.log4j.Logger;
 
 import java.util.List;
