@@ -1,12 +1,15 @@
 import nl.mawoo.intergrationframework.engine.Plugin;
 import nl.mawoo.intergrationframework.engine.PluginLoader;
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
 
+/**
+ * Map all plug-ins to see if the mapper is working.
+ */
 public class PluginLoaderTest {
+
     private static Logger logger = Logger.getLogger(PluginLoaderTest.class);
 
     /**
