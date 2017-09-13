@@ -9,6 +9,7 @@ The intergration framework "grabs" data sources and combines them into one model
 
 ## Integration with Java applications like Spring
 Use maven or gradle to import the library.
+
 Maven:
 ```
 todo: maven code
