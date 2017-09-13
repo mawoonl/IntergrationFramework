@@ -11,12 +11,12 @@ public class FrameworkCli {
     private static Logger logger = Logger.getLogger(FrameworkCli.class);
 
     public static void main(String[] args) {
-        Framework framework = new Framework("");
+        Jerome jerome = new Jerome("");
         logger.info("Ready for input");
         Scanner in = new Scanner(System.in);
         while (in.hasNext()) {
             String input = in.next();
-            List<MainDataModel> model = framework.run(input);
+            List<MainDataModel> model = jerome.run(input);
             logger.info(new Gson().toJson(model));
         }
     }

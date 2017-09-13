@@ -9,14 +9,14 @@ import org.apache.log4j.Logger;
 import java.util.List;
 
 /**
- * Jerome - Connector Framework
+ * Jerome - Connector Jerome
  * The last data source you'll ever need.
  * <p>
  * This framework is build to have many connections as one data source
  */
-public class Framework {
+public class Jerome {
 
-    private static Logger logger = Logger.getLogger(Framework.class);
+    private static Logger logger = Logger.getLogger(Jerome.class);
     private BootLoader bootLoader;
 
 
@@ -26,7 +26,7 @@ public class Framework {
      *
      * @param packageLocation can be an empty String
      */
-    public Framework(String packageLocation) {
+    public Jerome(String packageLocation) {
         // awesome logger header
         System.out.println("    __  ___                                  __                             \n" +
                 "   /  |/  /___ __      ______  ____         / /__  _________  ____ ___  ___ \n" +
