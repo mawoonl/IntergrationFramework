@@ -7,7 +7,7 @@ The intergration framework "grabs" data sources and combines them into one model
 ## How do you use it?
 
 
-## Integration with Spring or other java applications
+## Integration with Java applications like Spring
 Use maven or gradle to import the library.
 Maven:
 ```
