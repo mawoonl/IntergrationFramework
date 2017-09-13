@@ -15,12 +15,12 @@ import java.util.List;
 public class MaidExamplePlugin extends Plugin {
     /**
      * This class defines a plugin and gives information about the plugin
-     *
+     * The super params
      * @param name        The name of the plugin. It cannot contain the "+" character.
      * @param sourceUrl   Source URL that is used to find more information about the actual source
      * @param description Simple description of the plugin it self about the source and what it does.
      */
-    public MaidExamplePlugin(String name, String sourceUrl, String description) {
+    public MaidExamplePlugin() {
         super("exampe-plugin", "http://yourdomain.com/", "Example plugin on how to implement sources and use this framework.");
     }
 
