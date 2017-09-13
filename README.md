@@ -6,6 +6,27 @@ The intergration framework "grabs" data sources and combines them into one model
 
 ## How do you use it?
 
+
+## Integration with Spring or other java applications
+Use maven or gradle to import the library.
+Maven:
+```
+todo: maven code
+```
+Gradle
+```
+todo: gradle code
+```
+Create a new instance:
+```
+Jerome framework = new Jerome("package location (can be empty");
+// Run the intergration framework
+// returns a list of data
+List<MainDataModel> model = framework.run("maid://plugin-name/path/to/data?custom=parameter");
+//do whatever you want
+```
+
+
 ## How to create new plug-ins
 todo
 ## How to create new data model
@@ -27,25 +48,6 @@ class FileModel implements MainDataModel {
 }
 ```
 You can create a data model where ever you like if you just extend the MainDataModel class. The framework will automaticly output a json array with your items in the model.
-
-## Integration with Spring or other java applications
-Use maven or gradle to import the library.
-Maven:
-```
-todo: maven code
-```
-Gradle
-```
-todo: gradle code
-```
-Create a new instance:
-```
-Jerome framework = new Jerome("package location (can be empty");
-// Run the intergration framework
-// returns a list of data
-List<MainDataModel> model = framework.run("maid://plugin-name/path/to/data?custom=parameter");
-//do whatever you want
-```
 
 
 ## license 
