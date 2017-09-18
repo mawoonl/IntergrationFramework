@@ -26,6 +26,26 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <organization>
+        <name>Mawoo</name>
+        <url>http://mawoo.nl</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>Bob van der Valk</name>
+            <roles>Developer</roles>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <dependencies>
         <dependency>
             <groupId>org.reflections</groupId>
